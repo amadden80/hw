@@ -27,7 +27,7 @@ describe StockManagement do
     it "make new portfolio" do
       stockManagement = StockManagement.new('MrStockyManager')
       name = "Joe"
-      balance = 50000
+      balance = 100000000000000
       id = "AAPL"
       numShares = 1
       portName = "MyPortfolio"
@@ -39,7 +39,7 @@ describe StockManagement do
     it "make multiple portfolio" do
       stockManagement = StockManagement.new('MrStockyManager')
       name = "Joe"
-      stockManagement.newClient(name, 50000)
+      stockManagement.newClient(name, 100000000000000)
       stockManagement.getClient(name).newPortfolio("Port1", "AAPL", 1)
       stockManagement.getClient(name).newPortfolio("Port2", "GE", 3)
       stockManagement.getClient(name).portfolios.length == 2
@@ -48,7 +48,7 @@ describe StockManagement do
     it "buy multiple stocks in a portfolio" do
       stockManagement = StockManagement.new('MrStockyManager')
       name = "Joe"
-      stockManagement.newClient(name, 50000)
+      stockManagement.newClient(name, 100000000000000)
       stockManagement.getClient(name).newPortfolio("Port1", "AAPL", 1)
       stockManagement.getClient(name).portfolios[0].addStock("GE", 2)
       stockManagement.getClient(name).portfolios[0].stocks.length.should == 2
@@ -60,8 +60,7 @@ describe StockManagement do
     it "Client sells more shares" do
       stockManagement = StockManagement.new('MrStockyManager')
       name = "Joe"
-      startingCash = 500000
-      stockManagement.newClient(name, 5)
+      stockManagement.newClient(name, 100000000000000)
       stockManagement.getClient(name).newPortfolio("Port1", "AAPL", 2)
       stockManagement.getClient(name).sellStock("Port1", "AAPL", 1)
       stockManagement.getClient(name).portfolios[0].stocks[0][:numShares].should == 1
@@ -72,8 +71,8 @@ describe StockManagement do
     it "Client purchase subtracts from client cash" do
       stockManagement = StockManagement.new('MrStockyManager')
       name = "Joe"
-      startingCash = 50000
-      stockManagement.newClient(name, 5)
+      startingCash = 100000000000000
+      stockManagement.newClient(name, startingCash)
       stockManagement.getClient(name).newPortfolio("Port1", "AAPL", 2)
       stockManagement.getClient(name).cash.should < startingCash
     end
@@ -81,7 +80,7 @@ describe StockManagement do
     it "Client sells more shares for $" do
       stockManagement = StockManagement.new('MrStockyManager')
       name = "Joe"
-      startingCash = 5000000
+      startingCash = 100000000000000
       stockManagement.newClient(name, startingCash)
       stockManagement.getClient(name).newPortfolio("Port1", "AAPL", 2)
       cashAfterBuy = stockManagement.getClient(name).cash
@@ -104,8 +103,7 @@ describe StockManagement do
     it "stock price updated" do
       stockManagement = StockManagement.new('MrStockyManager')
       name = "Joe"
-      startingCash = 500
-      stockManagement.newClient(name, 500)
+      stockManagement.newClient(name, 100000000000000)
       stockManagement.getClient(name).newPortfolio("Port1", "AAPL", 20)
       bal1 = stockManagement.getClient(name).portfolios[0].balance
       stockManagement.getClient(name).update
@@ -118,8 +116,7 @@ describe StockManagement do
     it "show all stocks in a portfolio" do
       stockManagement = StockManagement.new('MrStockyManager')
       name = "Joe"
-      startingCash = 500
-      stockManagement.newClient(name, 500)
+      stockManagement.newClient(name, 100000000000000)
       stockManagement.getClient(name).newPortfolio("Port1", "AAPL", 20)
       stockManagement.getClient(name).portfolios[0].addStock("GE", 10)
       puts stockManagement.getClient(name).portfolios[0]
@@ -128,8 +125,7 @@ describe StockManagement do
     it "show all client in a portfolio" do
       stockManagement = StockManagement.new('MrStockyManager')
       name = "Joe"
-      startingCash = 500
-      stockManagement.newClient(name, 500)
+      stockManagement.newClient(name, 100000000000000)
       stockManagement.getClient(name).newPortfolio("Port1", "AAPL", 20)
       stockManagement.getClient(name).portfolios[0].addStock("GE", 10)
       puts stockManagement.getClient(name).portfolios[0]
@@ -137,8 +133,8 @@ describe StockManagement do
 
     it "show clients and balance" do
       stockManagement = StockManagement.new('MrStockyManager')
-      stockManagement.newClient("Joe", 500)
-      stockManagement.newClient("Tina", 1003)
+      stockManagement.newClient("Joe", 1000000000000001)
+      stockManagement.newClient("Tina", 1000000000000002)
       stockManagement.getClient("Joe").newPortfolio("Port1", "AAPL", 2)
       stockManagement.getClient("Tina").newPortfolio("Port1", "GE", 3)
       stockManagement.getClient("Joes").portfolios[0].addStock("GE", 10)
@@ -148,8 +144,8 @@ describe StockManagement do
 
     it "show clients and balance" do
       stockManagement = StockManagement.new('MrStockyManager')
-      stockManagement.newClient("Joe", 500)
-      stockManagement.newClient("Tina", 1003)
+      stockManagement.newClient("Joe", 1000000000000001)
+      stockManagement.newClient("Tina", 1000000000000002)
       stockManagement.getClient("Joe").newPortfolio("Port1", "AAPL", 2)
       stockManagement.getClient("Tina").newPortfolio("Port1", "GE", 3)
       stockManagement.getClient("Joes").portfolios[0].addStock("GE", 10)
