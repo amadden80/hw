@@ -1,5 +1,4 @@
 
-class stockManagementd
+class StockManagement
 
 end
-

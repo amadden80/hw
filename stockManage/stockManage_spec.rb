@@ -1,15 +1,15 @@
 
 
-require_relative 'bank'
+require_relative 'stockManage'
 
 
-describe Bank do
+describe StockManagement do
 
   describe '#new' do
-    it 'builds a new bank with a name' do
-      bank = Bank.new('MyCiti')
-      bank.should be_instance_of Bank
-      bank.name.should == 'MyCiti'
+    it 'builds a new StockManagement with a name' do
+      stockManagement = StockManagement.new('MyStocky')
+      stockManagement.should be_instance_of StockManagement
+      stockManagement.name.should == 'MyStocky'
     end
   end
 
