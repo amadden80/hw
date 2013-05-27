@@ -16,10 +16,7 @@ animal_3 = Animal.new( {:name => "Miskca", :breed => "cat", :age => 13, :gender 
 
 
 happiTails.available_animals = [animal_1, animal_2, animal_3]
-# happiTails.clients = [client_1, client_2]
-
-happiTails.clients.push(client_1)
-
+happiTails.clients = [client_1, client_2]
 
 puts
 
@@ -38,11 +35,4 @@ puts "\n<<Unadoptions Takes Place>>\n".color(:blue)
 client_1.unadopt(happiTails, animal_1)
 puts client_1
 happiTails.displayAnimals
-
-puts
-
-
-# Shelter :name, :clients, :animals
-# Client :name, :age, :gender, :kids, :num_pets, :animals
-# Animal :name, :breed, :age, :gender, :favToy, :client
 
