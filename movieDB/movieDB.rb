@@ -24,7 +24,6 @@ while movieTitle != 'q'
     jsone_response = JSON(response)
 
 
-
     if jsone_response['Response'] == 'True'
 
       sql_command = "SELECT title FROM movies WHERE title='#{jsone_response['Title']}'"
@@ -42,7 +41,10 @@ while movieTitle != 'q'
         director ||= jsone_response['Director']
         writer ||= jsone_response['Writer']
         actors ||= jsone_response['Actors']
-        imdbRating ||= jsone_response['imdbRating']          
+        imdbRating ||= jsone_response['imdbRating'] 
+
+        imdbRating = 'NULL' if imdbRating == 'N/A'
+
 
         sql_command = "INSERT INTO movies (title, year, rated, genre, released, runtime, director, writer, actors, imdbRating) VALUES ('#{title}', #{year}, '#{rated}', '#{genre}', '#{released}', '#{runtime}', '#{director}', '#{writer}', '#{actors}', #{imdbRating});"
         conn.exec(sql_command)

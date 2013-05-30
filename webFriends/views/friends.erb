@@ -1,0 +1,9 @@
+<section>
+  <ul>
+  <% @rows.each do |row| %>
+  
+    <li><%= "#{row['name']} (#{row['age']})" %></li>
+
+  <% end %>
+  </ul>
+</section>
