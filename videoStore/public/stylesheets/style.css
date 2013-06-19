@@ -1,0 +1,41 @@
+
+
+.videoItems{
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+}
+
+
+.descriptionBox{
+  font-size: 75%;
+  padding: 2px;
+  margin: 2px;
+  
+}
+
+.genreBox{
+  font-size: 75%;
+  padding: 2px;
+  margin: 2px;
+}
+
+.titleBox{
+  font-size: 100%;
+  padding: 2px;
+  margin: 2px;
+  color:black;
+}
+
+
+#master_container{
+  margin: 10px;
+  padding: 5px;
+}
+
+#bussCard{
+  padding:0px;
+  margin: 2px;
+  color:black;
+  border: 1px solid gray;
+}

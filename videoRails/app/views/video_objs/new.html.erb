@@ -1,0 +1,14 @@
+
+<%= form_for(@video) do |f| %>
+  
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
+  <%= f.submit %>
+
+<% end %>

@@ -1,0 +1,9 @@
+<div class="span7 ">
+<form method='post' action="/videos/<%= @row['id']%>/update">
+  <input type='text' name='title' value="<%= @row['title']%>"/></br>
+  <input type='text' name='description' value="<%= @row['description']%>" /></br>
+  <input type='text' name='url' value="<%= @row['url']%>" /></br>
+  <input type='text' name='genre' value="<%= @row['genre']%>" /></br>
+  <button>Update</button>
+</form>
+</div>

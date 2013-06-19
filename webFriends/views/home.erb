@@ -1,0 +1,11 @@
+<section>
+ 
+  <% @rows.each do |row| %>
+      <% if !row['image'].blank? %>
+      <div class="span3">
+      <%= "<img src=\'http://#{row['image']}\' class='avatarImages_home'/>" %>
+      </div>
+      <% end %>      
+  <% end %>
+
+</section>

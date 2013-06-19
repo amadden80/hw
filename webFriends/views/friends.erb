@@ -1,8 +1,49 @@
+
+
 <section>
-  <ul>
+  <ul id = "friendUnorderedList">
   <% @rows.each do |row| %>
+
   
-    <li><%= "#{row['name']} (#{row['age']})" %></li>
+    <li class= 'friendListItems'>
+
+      <% if !row['image'].blank? %>
+      <%= "<img src=\'http://#{row['image']}\' class='avatarImages'/>" %>
+      <% end %>      
+
+      <% if !row['name'].blank? %>
+      <%= row['name'] %>
+      <% end %> 
+
+      <% if !row['age'].blank? %>
+      (<%= row['age'] %>)
+      <% end %> 
+
+      <% if !row['email'].blank? %>
+      <a href='<%= row['email'] %>' ><span class='icon-envelope'></span><a>
+      <% end %>
+
+      <% if !row['website'].blank? %>
+      <a href='http://<%= row['website'] %>' ><span class='icon-external-link-sign'></span><a>
+      <% end %>
+
+      <% if !row['twitter'].blank? %>
+      <a href='http://<%= row['twitter'] %>' ><span class='icon-twitter-sign'></span><a>
+      <% end %>
+
+      <% if !row['facebook'].blank? %>
+      <a href='http://<%= row['facebook'] %>' ><span class='icon-facebook-sign'></span><a>
+      <% end %>
+
+      <% if !row['github'].blank? %>
+      <a href='http://<%= row['github'] %>' ><span class='icon-github-sign'></span><a>
+      <% end %>
+
+
+      <a href="/trash/<%= row['id'] %>"><span class='icon-remove'></a>
+
+
+    </li>
 
   <% end %>
   </ul>

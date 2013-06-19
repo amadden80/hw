@@ -1,0 +1,75 @@
+<html>
+<script>
+
+alert("Subway Network")
+
+var N_Line = ['Times Square', '34th', '28th', '23rd', 'Union Square', '8th']
+var L_Line = ['8th', '6th', 'Union Square', '3rd', '1st']
+var Six_Line = ['Grand Central', '33rd', '28th', '23rd', 'Union Square', 'Astor Place']
+var subwayNetwork = {N: N_Line, L: L_Line, Six: Six_Line}
+var unionStation = 'Union Square'
+
+
+function getValidLine(msg, subwayNetwork){
+  line = prompt(msg)
+  if (subwayNetwork[line]){
+    return line
+  }
+  return getValidLine("Enter Valid Line...", subwayNetwork)
+}
+
+
+function getValidStation(msg, line){
+  stationName = prompt(msg)
+  for (var i = 0; i < line.length; i++){
+    if (line[i] == stationName){
+      return stationName;
+    }
+  }
+  return getValidStation("Enter Valid Station...", line)
+}
+
+
+function menu(subwayNetwork){
+  
+  onLine =  getValidLine("What line are you getting on at?: ", subwayNetwork)
+
+  onStation = getValidStation("What station are you getting on at?: ", subwayNetwork[onLine])
+
+  offLine =  getValidLine("What line are you getting off at?: ", subwayNetwork)
+  
+  offStation = getValidStation("What station are you getting off at?: ", subwayNetwork[offLine])
+
+  return [onLine, onStation, offLine, offStation]
+}
+
+
+function getStationIndex(line, stationName){
+  for (var i = 0; i < line.length; i++){
+       if (line[i] == stationName){return i;}
+     }
+}
+
+
+function countStops(onLine, onStation, offLine, offStation, subwayNetwork, unionStation){
+  var numStops;
+  if (onLine == offLine){
+    numStops = Math.abs( getStationIndex(subwayNetwork[onLine], onStation) - getStationIndex(subwayNetwork[offLine], offStation))
+  }
+  else{
+    numStops = Math.abs( getStationIndex(subwayNetwork[onLine], onStation) - getStationIndex(subwayNetwork[onLine], unionStation))
+    numStops += Math.abs( getStationIndex(subwayNetwork[offLine], offStation) - getStationIndex(subwayNetwork[offLine], unionStation))
+  }
+  return numStops
+}
+
+
+responses = menu(subwayNetwork)
+numstops = countStops(responses[0], responses[1], responses[2], responses[3], subwayNetwork, unionStation)
+alert("You should prepare for " + numstops + " stops.")
+
+
+</script>
+
+
+</html>

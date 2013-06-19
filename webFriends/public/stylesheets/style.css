@@ -1,0 +1,24 @@
+
+.avatarImages{
+  width:25px;
+}
+
+.avatarImages_home{
+  width:100px; 
+}
+
+.friendUnorderedList{
+}
+
+.friendUnorderedList_home{
+display: inline;
+}
+
+#friendUnorderedList{
+  list-style: none;
+}
+
+#friendUnorderedList_home{
+  list-style: none;
+}
+

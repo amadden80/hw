@@ -1,0 +1,59 @@
+<div class="row">
+  <div class = "span5">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class= "nav">
+          <span class="brand">
+          Genres:
+          </span>
+          <% @genres.each do |genre| %>
+          <li><a href="/videos/byGenre/<%= genre %>"><%= genre %></a></li>
+          <% end %>
+          <li><a href="/videos">all genres</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class = "span7">
+    <% @rows.each do |row| %>
+
+      <div class = "span3">
+        <div class="videoItems">
+          
+          <% if !row['url'].blank? %>
+          <iframe width="200" src="http://<%= row['url'] %>" frameborder="0" >
+          </iframe>
+          <br/>
+          <% end %>
+          <% if !row['title'].blank? %>
+            <div class="titleBox">
+              <%= row['title'] %>
+            </div>
+          <% end %>
+          <% if !row['description'].blank? %>
+            <div class="descriptionBox">
+              <%= row['description'] %>
+            </div>
+          <% end %>
+          <% if !row['genre'].blank? %>
+            <div class="genreBox">
+              <a href="/videos/byGenre/<%= row['genre'] %>"><%= row['genre'] %></a>
+            </div>
+          <% end %>
+          <br/>
+          
+          <a href='/videos/<%= row['id'] %>/edit' class= "btn ">Edit</a>
+          <a href='/videos/<%= row['id'] %>/delete' class= "btn">Delete</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+

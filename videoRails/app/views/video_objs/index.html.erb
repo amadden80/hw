@@ -1,0 +1,6 @@
+
+<% @videos.each do |video| %>
+  <%= video.name %>: 
+  <%= link_to 'Delete', video_obj_path(video), method: :delete %>
+  <br/>
+<% end %>
